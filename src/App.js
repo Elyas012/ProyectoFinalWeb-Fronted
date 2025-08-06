@@ -19,17 +19,40 @@ export default function App() {
 
   if (!showStore) {
     return (
-      <div className="welcome-screen d-flex flex-column justify-content-center align-items-center vh-100 text-center bg-light">
-        <h1 className="mb-4" style={{ fontWeight: 'bold', fontSize: '3rem' }}>
-          ¡Bienvenido a Tienda React!
-        </h1>
-        <button
-          className="btn btn-primary btn-lg px-5"
-          onClick={handleStart}
-          style={{ borderRadius: '30px', fontWeight: '600', letterSpacing: '1.2px' }}
-        >
-          Ver productos
-        </button>
+      <div className="welcome-screen d-flex flex-column justify-content-center align-items-center vh-100 text-center text-white px-4">
+        <div className="welcome-content p-4 rounded shadow-lg" style={{ maxWidth: 600, background: 'rgba(0,0,0,0.6)' }}>
+          <h1 className="mb-3 display-4 fw-bold" style={{ fontFamily: "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif" }}>
+            ¡Bienvenido a <span style={{ color: '#00d2ff' }}>Tienda React</span>!
+          </h1>
+          <p className="mb-4 fs-5" style={{ lineHeight: '1.6' }}>
+            Explora nuestra variedad de productos de alta calidad. Compra fácil y rápido, recibe en tu domicilio y disfruta de la mejor experiencia de compra online.
+          </p>
+          <button
+            className="btn btn-gradient btn-lg px-5 py-3 fw-semibold"
+            onClick={handleStart}
+            style={{
+              borderRadius: '50px',
+              background: 'linear-gradient(45deg, #00d2ff, #3a47d5)',
+              border: 'none',
+              boxShadow: '0 4px 15px rgba(0, 210, 255, 0.5)',
+              transition: 'all 0.3s ease',
+              color: 'white',
+            }}
+            onMouseEnter={e => {
+              e.currentTarget.style.background = 'linear-gradient(45deg, #3a47d5, #00d2ff)';
+              e.currentTarget.style.boxShadow = '0 6px 20px rgba(58, 71, 213, 0.7)';
+            }}
+            onMouseLeave={e => {
+              e.currentTarget.style.background = 'linear-gradient(45deg, #00d2ff, #3a47d5)';
+              e.currentTarget.style.boxShadow = '0 4px 15px rgba(0, 210, 255, 0.5)';
+            }}
+          >
+            Ver productos
+          </button>
+          <small className="d-block mt-4" style={{ opacity: 0.7 }}>
+            © 2025 Tienda React. Todos los derechos reservados.
+          </small>
+        </div>
       </div>
     );
   }
