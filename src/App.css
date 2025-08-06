@@ -36,3 +36,15 @@
     transform: rotate(360deg);
   }
 }
+/* Fondo con degradado para toda la pantalla de bienvenida */
+.welcome-screen {
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  min-height: 100vh;
+}
+
+/* Efecto para el botón si quieres manejarlo desde CSS (opcional) */
+.btn-gradient:hover {
+  background: linear-gradient(45deg, #3a47d5, #00d2ff) !important;
+  box-shadow: 0 6px 20px rgba(58, 71, 213, 0.7) !important;
+  cursor: pointer;
+}
