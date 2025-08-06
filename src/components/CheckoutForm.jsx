@@ -12,9 +12,13 @@ export default function CheckoutForm() {
   const handleSubmit = async e => {
     e.preventDefault();
     try {
-      const res = await fetch(process.env.REACT_APP_API_URL + '/checkout', {
-        method: 'POST', headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ customer, items, total })
+      const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:4000';
+      const baseUrl = API_URL.endsWith('/') ? API_URL.slice(0, -1) : API_URL;
+
+      const res = await fetch(`${baseUrl}/checkout`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ customer, items, total }),
       });
       const data = await res.json();
       setMessage(data.message);
@@ -23,7 +27,6 @@ export default function CheckoutForm() {
       setMessage('Error procesando la compra');
     }
   };
-
   return (
     <div className="card p-3">
       <h5>Checkout</h5>
