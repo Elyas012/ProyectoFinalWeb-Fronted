@@ -1,3 +1,9 @@
+// client/src/components/ProductCard.jsx
+import React from 'react';
+import useCart from '../hooks/useCart';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 export default function ProductCard({ product }) {
   const { addItem } = useCart();
 
