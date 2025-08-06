@@ -61,18 +61,21 @@ export default function App() {
     <CartProvider>
       <div className="d-flex flex-column min-vh-100">
         <Navbar />
-        <div className="container my-4 flex-grow-1">
-          <div className="row">
-            <div className="col-lg-8">
-              <h1 className="mb-4 text-center">Tienda React</h1>
-              <ProductList />
-            </div>
-            <div className="col-lg-4">
-              <CartSidebar />
-              <CheckoutForm />
-            </div>
-          </div>
-        </div>
+              <div className="container my-4 flex-grow-1">
+                <div className="row">
+                  <div className="col-lg-8 mb-4">
+                      <h1 className="mb-4 text-center">Tienda React</h1>
+                      <h1 className="mb-4 text-center fw-bold" style={{letterSpacing:'1px'}}>Catálogo de Productos</h1>
+                      <ProductList />
+                  </div>
+                  <div className="col-lg-4">
+                      <div className="sticky-top" style={{top:'100px'}}>
+                        <CartSidebar />
+                        <CheckoutForm />
+                      </div>
+                  </div>
+                </div>
+              </div>
         <Footer />
         <ToastContainer
           position="bottom-right"
