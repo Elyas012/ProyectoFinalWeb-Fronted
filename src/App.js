@@ -9,6 +9,8 @@ import CheckoutForm from './components/CheckoutForm';
 import Footer from './components/Footer';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function App() {
   return (
@@ -18,7 +20,7 @@ function App() {
         <div className="container my-4 flex-grow-1">
           <div className="row">
             <div className="col-lg-8">
-              <h1 className="mb-4 text-center">Tienda React</h1>
+              <h1 className="mb-4 text-center">Tienda ReactTeamBB</h1>
               <ProductList />
             </div>
             <div className="col-lg-4">
@@ -28,6 +30,18 @@ function App() {
           </div>
         </div>
         <Footer />
+        {/* ToastContainer debe ir aquí, a nivel global */}
+        <ToastContainer
+          position="bottom-right"
+          autoClose={1500}       // Cierra automáticamente después de 1.5 segundos
+          hideProgressBar={false}
+          newestOnTop={false}
+          closeOnClick
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+        />
       </div>
     </CartProvider>
   );
