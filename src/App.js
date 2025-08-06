@@ -1,5 +1,5 @@
 // client/src/App.js
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import { CartProvider } from './context/CartContext';
 import Navbar from './components/Navbar';
@@ -12,7 +12,28 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function App() {
+export default function App() {
+  const [showStore, setShowStore] = useState(false);
+
+  const handleStart = () => setShowStore(true);
+
+  if (!showStore) {
+    return (
+      <div className="welcome-screen d-flex flex-column justify-content-center align-items-center vh-100 text-center bg-light">
+        <h1 className="mb-4" style={{ fontWeight: 'bold', fontSize: '3rem' }}>
+          ¡Bienvenido a Tienda React!
+        </h1>
+        <button
+          className="btn btn-primary btn-lg px-5"
+          onClick={handleStart}
+          style={{ borderRadius: '30px', fontWeight: '600', letterSpacing: '1.2px' }}
+        >
+          Ver productos
+        </button>
+      </div>
+    );
+  }
+
   return (
     <CartProvider>
       <div className="d-flex flex-column min-vh-100">
@@ -20,7 +41,7 @@ function App() {
         <div className="container my-4 flex-grow-1">
           <div className="row">
             <div className="col-lg-8">
-              <h1 className="mb-4 text-center">Tienda ReactTeamBB</h1>
+              <h1 className="mb-4 text-center">Tienda React</h1>
               <ProductList />
             </div>
             <div className="col-lg-4">
@@ -30,10 +51,9 @@ function App() {
           </div>
         </div>
         <Footer />
-        {/* ToastContainer debe ir aquí, a nivel global */}
         <ToastContainer
           position="bottom-right"
-          autoClose={1500}       // Cierra automáticamente después de 1.5 segundos
+          autoClose={1500}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick
@@ -46,5 +66,3 @@ function App() {
     </CartProvider>
   );
 }
-
-export default App;
